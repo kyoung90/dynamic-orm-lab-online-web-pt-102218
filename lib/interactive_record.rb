@@ -56,6 +56,6 @@ class InteractiveRecord
   def self.find_by(column_hash)
     column_name = column_hash.keys[0]
     column_value = column_hash.values[0]
-    sql = "SELECT * FROM #{self.table_name} WHERE #{}=#{}"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}=#{column_value}"
   end
 end
