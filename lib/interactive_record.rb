@@ -57,7 +57,11 @@ class InteractiveRecord
   def self.find_by(column_hash)
     column_name = column_hash.keys[0]
     column_value = column_hash.values[0]
-    sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}=#{column_value}"
+    if column_value.is_a? Integer
+      sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}=#{column_value}"
+    elsif column_value.is_a? String
+      sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}='#{column_value}'"
+    end 
     binding.pry
     DB[:conn].execute(sql)
   end
