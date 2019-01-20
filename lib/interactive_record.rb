@@ -52,4 +52,10 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
     DB[:conn].execute(sql)
   end
+
+  def self.find_by(column_hash)
+    column_name = column_hash.keys[0]
+    column_value = column_hash.values[0]
+    sql = "SELECT * FROM #{self.table_name} WHERE #{}=#{}"
+  end
 end
