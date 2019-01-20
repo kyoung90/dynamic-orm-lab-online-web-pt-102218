@@ -57,6 +57,6 @@ class InteractiveRecord
     column_name = column_hash.keys[0]
     column_value = column_hash.values[0]
     sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}=#{column_value}"
-    DB[:conn].execute(sq;)
+    DB[:conn].execute(sql)
   end
 end
