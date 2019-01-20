@@ -61,8 +61,9 @@ class InteractiveRecord
       sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}=#{column_value}"
     elsif column_value.is_a? String
       sql = "SELECT * FROM #{self.table_name} WHERE #{column_name}='#{column_value}'"
-    end 
-    binding.pry
+    end
+    # binding.pry
     DB[:conn].execute(sql)
   end
 end
+  
